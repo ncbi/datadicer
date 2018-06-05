@@ -1,0 +1,18 @@
+{
+  "extends": "../.jshintrc",
+  "globals": {
+    "$": false,
+    "angular": false,
+    "beforeEach": false,
+    "d3": false,
+    "dc": false,
+    "describe": false,
+    "expect": true,
+    "inject": false,
+    "it": false,
+    "jQuery": false,
+    "seqr": false,
+    "Singular": false
+  },
+  "unused": true
+}

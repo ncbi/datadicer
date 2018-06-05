@@ -1,0 +1,145 @@
+<div class="ngram">
+    <div class="advancedoptions">
+        <div ng-show=" !panel.open">
+            <span aria-role="button" class="filters-open btn btn-default pull-left btn-sm"
+                    style="margin-right: 8px;"
+                    analytics-on
+                    analytics-category="Options"
+                    analytics-event="option button"
+                    analytics-label="expanded"
+                    ng-click=" panel.open = !panel.open">
+                <!--<i class="glyphicon glyphicon-chevron-down"></i>-->
+                <i ng-class="{'fa fa-cog':filters.filtersCount(),'glyphicon glyphicon-chevron-down':!filters.filtersCount()}"></i>
+                <span>Filters</span>
+                <span ng-show="filters.filtersCount()" class="badge filteron"
+                      uib-popover="{{filters.filtersCount()}} filter{{filters.filtersCount()>1?'s':''}} applied, click to view"
+                      popover-trigger="mouseenter">{{filters.filtersCount()}}</span>
+            </span>
+            <ng-transclude></ng-transclude>
+
+            <div advanced-options-selected-button ng-show="config.multiselect && selarrrow.length>0"
+                 adv-opts="config.advOpts"
+                 selarrrow="selarrrow"
+                 reset-all-selection="resetAllSelection()"></div>
+            <button class="btn btn-sm"
+                    ng-show="!config.advOpts.downloadBtn.hidden"
+                    ng-class="config.advOpts.downloadBtn.css || 'btn-default pull-right'"
+                    tooltip-placement="{{config.advOpts.downloadBtn.tipsPlacement || 'left'}}"
+                    uib-tooltip="{{config.advOpts.downloadBtn.tips || 'CSV Download (10k limit)'}}"
+                    tooltip-popup-delay="500"
+                    tooltip-append-to-body="true"
+                    analytics-on
+                    analytics-category="download"
+                    analytics-event="download button"
+                    analytics-label="download"
+                    ng-click="config.advOpts.downloadBtn.onClick()">
+                <i class="fa fa-download" aria-hidden="true"></i> Download
+            </button>
+        </div>
+
+        <uib-tabset ng-show="panel.open" class="animate-show-tab">
+            <uib-tab active="true" class="pull-left" style="margin-left: 4px;">
+                <uib-tab-heading
+                        analytics-on
+                        analytics-category="Options"
+                        analytics-event="option button"
+                        analytics-label="collapsed">
+                <span aria-role="button" class="filters-close" ng-click="panel.open = false">
+                    <i class="glyphicon glyphicon-chevron-up"></i> Filters
+                </span>
+                    <span class="badge filteron count"
+                          ng-show="filters.filtersCount()"
+                          uib-popover="{{filters.filtersCount()}} filter{{filters.filtersCount()>1?'s':''}} applied"
+                          popover-trigger="mouseenter">{{filters.filtersCount()}}
+                </span><span class="badge filteron reset"
+                             analytics-on
+                             analytics-category="Options"
+                             analytics-event="reset filter button(x)"
+                             analytics-label="clicked"
+                             ng-show="filters.filtersCount()"
+                             uib-popover="Reset"
+                             aria-label="Reset filters"
+                             popover-trigger="mouseenter"
+                             ng-click="filters.resetAllFilters({doSearch: true})"><i
+                        class="fa fa-times"></i>
+                </span>
+                </uib-tab-heading>
+
+                <div class="row">
+                  <div ng-repeat="n in (config.filtersFields || config.facetFields ) track by $index"
+                       class="col-xs-12 col-md-12" ng-show="!n.hidden">
+                    <fieldset class="input-group input-group-sm">
+                          <legend class="input-group-addon">
+                            <span class="glyphicon glyphicon-filter-"></span> {{n.label || n.displayname}}
+</legend>
+                            <div ng-if="!n.rowChart" checkbox-inline
+                                 filters="filters[n.name]"
+                                 allow-zeros="n.allowZeros"
+                                 limit-by-number="n.limitByNumber"
+                                 on-filter-changes="onFilterChange()"
+                                 class="filter"
+                                 style="border-right:none;border-bottom: none;border-top: none;">
+                            </div>
+                            <div ng-if="n.rowChart" rowchart
+                                 config="n"
+                                 filters="filters[n.name]"
+                                 allow-zeros="n.allowZeros"
+                                 limit-by-number="n.limitByNumber"
+                                 on-filter-changes="onFilterChange()"
+                                 class="filter"
+                                 style="order-right:none;border-bottom: none;border-top: none;">
+                            </div>
+                    </fieldset>
+                  </div>
+
+
+                  <div ng-repeat="n in (config.rangeFacetFields ) track by $index"
+                       class="col-xs-12 col-md-12" ng-show="!n.hidden">
+                    <fieldset class="input-group input-group-sm">
+                        <legend class="input-group-addon" style="border-right: 1px solid #ccc;">
+                            <span class="glyphicon glyphicon-filter-"></span>{{n.name}}
+                        </legend>
+                            <div barchart
+                                 config="n"
+                                 filters="filters[n.field]"
+                                 range-filters="rangeFilters[n.field]"
+                                 on-filter-changes="onFilterChange()"
+                                 class="filter"
+                                 style="border-right:none;border-bottom: none;border-top: none;">
+                            </div>
+                    </fieldset>
+                  </div>
+                  <div ng-repeat="n in (config.stringFilterFields ) track by $index"
+                       class="col-xs-12 col-md-12" ng-show="!n.hidden">
+                    <fieldset class="input-group input-group-sm">
+                            <legend class="input-group-addon" style="border-right: 1px solid #ccc;">{{n.label}}</legend>
+                            <div dd-autosuggest-input config="n" filters="filters[n.name]"
+                                 get-suggestions="n.getSuggestions(value)"
+                                 class="filter"
+                                 on-filter-changes="onFilterChange()"></div>
+                    </fieldset>
+                  </div>
+                </div>
+            </uib-tab>
+        </uib-tabset>
+        <div class="row">
+            <div ng-show="panel.open" class="col-xs-12 col-md-12">
+                <ng-transclude></ng-transclude>
+                <button ng-show="!config.advOpts.downloadBtn.hidden"
+                        ng-class="config.advOpts.downloadBtn.css || 'btn-default pull-right'"
+                        class="btn btn-sm"
+                        tooltip-placement="{{config.advOpts.downloadBtn.tipsPlacement || 'left'}}"
+                        tooltip-popup-delay="500"
+                        uib-tooltip="{{config.advOpts.downloadBtn.tips || 'CSV Download (10k limit)'}}"
+                        tooltip-append-to-body="true"
+                        analytics-on
+                        analytics-category="download"
+                        analytics-event="download button"
+                        analytics-label="download"
+                        ng-click="config.advOpts.downloadBtn.onClick()">
+                    <i class="fa fa-download" aria-hidden="true"></i> Download
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

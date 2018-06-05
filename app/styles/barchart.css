@@ -1,0 +1,20 @@
+.ngram .barchart {
+  font-size: 11px;
+  vertical-align: bottom;
+}
+.ngram .barchart .item_name {
+  text-decoration: none;
+  font-size: 11px !important;
+  white-space: nowrap;
+  display: inline-block;
+  cursor: pointer;
+  /*border-radius: 4px;*/
+}
+.ngram .barchart .item_name:hover {
+  color: #3e6d8e;
+  /*background-color: #4a6b82;*/
+}
+.ngram .barchart .item_name a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}

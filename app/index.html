@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Solr Data Search</title>
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico'/>
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/free-jqgrid/plugins/ui.multiselect.css" />
+    <link rel="stylesheet" href="bower_components/free-jqgrid/css/ui.jqgrid.css" />
+    <link rel="stylesheet" href="bower_components/singularjs/dist/singular.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+
+    <link rel="stylesheet" href="styles/jquery-ui.css"/>
+    <link rel="stylesheet" href="styles/checkboxInline.css">
+    <link rel="stylesheet" href="styles/barchart.css">
+    <link rel="stylesheet" href="styles/rowchart.css">
+    <link rel="stylesheet" href="styles/advancedoptions.css">
+    <link rel="stylesheet" href="styles/ddautosuggestinput.css">
+    <link rel="stylesheet" href="styles/searchbar.css">
+    <link rel="stylesheet" href="styles/gridtable.css">
+    <link rel="stylesheet" href="styles/508.css">
+    <link rel="stylesheet" href="styles/popoverlinkmenu.css">
+    <link rel="stylesheet" href="styles/view.table.css">
+    <link rel="stylesheet" href="styles/animate.css">
+    <link rel="stylesheet" href="styles/index.css">
+
+    <!-- endbuild -->
+</head>
+<body ng-app="ngramApp">
+
+
+<!-- application content here -->
+
+<div ui-view></div>
+
+
+<!--&lt;!&ndash; Google Analytics: change UA-XXXXX-X to be your site's ID &ndash;&gt;-->
+<!--<script>-->
+<!--(function (i, s, o, g, r, a, m) {-->
+<!--i['GoogleAnalyticsObject'] = r;-->
+<!--i[r] = i[r] || function () {-->
+<!--(i[r].q = i[r].q || []).push(arguments)-->
+<!--}, i[r].l = 1 * new Date();-->
+<!--a = s.createElement(o),-->
+<!--m = s.getElementsByTagName(o)[0];-->
+<!--a.async = 1;-->
+<!--a.src = g;-->
+<!--m.parentNode.insertBefore(a, m)-->
+<!--})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');-->
+
+<!--ga('create', 'UA-90246147-1', 'auto');-->
+<!--//*for localhost testing*/ga('create', 'UA-58896199-1', 'none');-->
+<!--//ga('require', 'linkid', 'linkid.js');-->
+<!--//ga('send', 'pageview');-->
+<!--</script>-->
+
+<!-- build:js(.) scripts/oldieshim.js -->
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.js"></script>
+<![endif]-->
+<!-- endbuild -->
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angulartics/dist/angulartics.min.js"></script>
+<script src="bower_components/angulartics/dist/angulartics-ga.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-filter/dist/angular-filter.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/eventEmitter/EventEmitter.js"></script>
+<script src="bower_components/jquery-ui/jquery-ui.js"></script>
+<script src="bower_components/free-jqgrid/js/jquery.jqgrid.src.js"></script>
+<script src="bower_components/free-jqgrid/plugins/ui.multiselect.js"></script>
+<script src="bower_components/d3/d3.js"></script>
+<script src="bower_components/singularjs/dist/singular.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/filters.js"></script>
+<script src="scripts/mainController.js"></script>
+<script src="scripts/plugins/jquery.jqgrid.showhidecolumnmenu.js"></script>
+<script src="scripts/plugins/jquery.replaceTagName.js"></script>
+<script src="scripts/directives/advancedoptions.js"></script>
+<script src="scripts/directives/searchbar.js"></script>
+<script src="scripts/directives/checkboxinline.js"></script>
+<script src="scripts/directives/advancedOptionsSelectedButton.js"></script>
+<script src="scripts/directives/barchart.js"></script>
+<script src="scripts/directives/rowchart.js"></script>
+<script src="scripts/directives/searchbox.js"></script>
+<script src="scripts/directives/gridtable.js"></script>
+<script src="scripts/directives/popoverlinkmenu.js"></script>
+<script src="scripts/directives/ddautosuggestinput.js"></script>
+<script src="scripts/directives/filterastab.js"></script>
+<script src="scripts/services/ngramAppConfig.js"></script>
+<script src="scripts/services/searchstate.js"></script>
+<script src="scripts/services/debounce.js"></script>
+<script src="scripts/services/backenddriver.js"></script>
+<script src="scripts/services/trackEvent.js"></script>
+<script src="scripts/services/trackSearch.js"></script>
+<script src="scripts/services/trackClick.js"></script>
+<script src="scripts/DataDicer.factory.js"></script>
+<!-- endbuild -->
+
+<script src="scripts/templates.js"></script>
+
+<!-- build:js({.tmp,app}) scripts/routing.js -->
+<script src="scripts/routing.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

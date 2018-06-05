@@ -1,0 +1,32 @@
+<div class="btn btn-sm"
+        style="margin-right: 8px;"
+        ng-show="!advOpts.selectsBtn.hidden"
+        ng-class="advOpts.selectsBtn.css || 'btn-default pull-right'">
+                <span tooltip-placement="{{advOpts.selectsBtn.tipsPlacement || 'left'}}"
+                      uib-tooltip="{{advOpts.selectsBtn.tips || 'Selected Records'}}"
+                      tooltip-popup-delay="500"
+                      tooltip-append-to-body="true"
+                      analytics-on
+                      analytics-category="download"
+                      analytics-event="download button"
+                      analytics-label="download"
+                      ng-click="advOpts.selectsBtn.onClick()">
+                   <i class="fa fa-list-ol" aria-hidden="true"></i>
+                    <span>Selected : </span>
+                </span>
+
+    <!--<span ng-show="selarrrow.length>0" class="badge filteron">{{selarrrow.length}}</span>-->
+    <span ng-show="selarrrow.length>0">
+                    <span class="badge filteron count">{{selarrrow.length}}</span><span class="badge filteron reset"
+                                                                                        analytics-on
+                                                                                        analytics-category="Options"
+                                                                                        analytics-event="reset selection button(x)"
+                                                                                        analytics-label="clicked"
+                                                                                        ng-show="selarrrow.length>0"
+                                                                                        uib-popover="Reset"
+                                                                                        popover-trigger="mouseenter"
+                                                                                        ng-click="resetAllSelection()"><i
+            class="fa fa-times"></i>
+                    </span>
+                </span>
+</div>

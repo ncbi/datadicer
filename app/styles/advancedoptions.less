@@ -1,0 +1,93 @@
+/*
+ * For Advanced Options Directive
+ *
+ */
+.ngram {
+  .advancedoptions {
+    margin-bottom: 5px;
+    padding-top: 10px;
+    .nav-tabs {
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 0;
+    }
+
+    .tab-content {
+      padding: 20px;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      .input-group {
+        padding-bottom: 5px;
+      }
+      .input-group-addon {
+        min-width: 120px;
+        /*if you want width please write here*/
+        border-right: 1px solid #ccc;
+        color: black;
+        background-color: rgba(245, 245, 245, 0.6);
+      }
+      fieldset.input-group > legend {
+        font-size: 12px;
+        margin: 0 10px 0 0;
+        float: left;
+      }
+      fieldset.input-group > .filter {
+        overflow: hidden;
+      }
+
+    }
+
+    .filteron {
+      font-size: 10px;
+      line-height: 10px;
+      color: white;
+      background-color: #145992;
+      &.count {
+        border-bottom-right-radius: 0px;
+        border-top-right-radius: 0px;
+      }
+
+      &.reset {
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+        line-height: 10px;
+        color: red;
+        background-color: #d3d3d3;
+      }
+    }
+
+    .form-control-feedback.clean-btn {
+      pointer-events: auto;
+    }
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+      border: 1px solid #ccc;
+      border-bottom-color: transparent;
+    }
+
+    .fa-spin-custom, .glyphicon-spin {
+      -webkit-animation: spin 1000ms infinite linear;
+      animation: spin 1000ms infinite linear;
+    }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+      }
+    }
+  }
+}

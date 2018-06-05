@@ -1,0 +1,71 @@
+{
+  "name": "datadicer",
+  "version": "0.2.46",
+  "dependencies": {
+    "angular-animate": "~1.x",
+    "angular-aria": "~1.x",
+    "angular-cookies": "~1.x",
+    "angular-messages": "~1.x",
+    "angular-resource": "~1.x",
+    "angular-sanitize": "~1.x",
+    "angular-touch": "~1.x",
+    "angular-bootstrap": "~0.14.0",
+    "angulartics": "~0.17.2",
+    "angular-ui-router": "^0.3.2",
+    "angular-filter": "~0.5.4",
+    "bootstrap": "^3.3.6",
+    "es5-shim": "^4.0.0",
+    "eventEmitter": "~4.2.11",
+    "fontawesome": "~4.2.0",
+    "json3": "^3.3.0",
+    "jquery": "^2.2.4",
+    "jquery-ui": "~1.11.4",
+    "free-jqgrid": "~4.13.6",
+    "singularjs": "~1.0.3"
+  },
+  "overrides": {
+    "angulartics": {
+      "main": [
+        "dist/angulartics.min.js",
+        "dist/angulartics-ga.min.js"
+      ],
+      "dependencies": {}
+    },
+    "free-jqgrid": {
+      "main": [
+        "js/jquery.jqgrid.src.js",
+        "plugins/ui.multiselect.js",
+        "plugins/ui.multiselect.css",
+        "css/ui.jqgrid.css"
+      ]
+    },
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css"
+      ]
+    }
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.x",
+    "angular-scenario": "~1.x"
+  },
+  "appPath": "app",
+  "main": [
+    "dist/scripts/scripts.js",
+    "dist/styles/main.css"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "app",
+    "Grunt.js",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "angular": "~1.6.x"
+  }
+}

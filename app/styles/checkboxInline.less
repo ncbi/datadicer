@@ -1,0 +1,58 @@
+.checkboxinline {
+  font-size: 12px;
+  vertical-align: middle;
+
+  .item_checkbox {
+    visibility: visible;
+    font-family: FontAwesome;
+    color: #3e6d8e;
+    font-size: 18px;
+    height: 17px;
+    width: 17px;
+    position: relative;
+    top: 2px;
+    left: 0px;
+    background-color: #FFF;
+    display: inline-block;
+    &:hover {
+      color: lightblue;
+    }
+  }
+
+  .item_count {
+    font-weight: normal;
+    color: #326083;
+    margin: 0px 2px 2px 4px;
+  }
+
+  .item_name {
+    /*color: #3e6d8e;*/
+    /*background-color: #e0eaf1;*/
+    /*border-bottom: 1px solid #b3cee1;*/
+    /*border-right: 1px solid #b3cee1;*/
+    /*padding: 2px 4px 1px 4px;*/
+    text-decoration: none;
+    /*font-size: 92%;*/
+    white-space: nowrap;
+    display: inline-block;
+    cursor: pointer;
+    /*border-radius: 4px;*/
+    &:hover {
+      color: #3e6d8e;
+      /*background-color: #4a6b82;*/
+    }
+  }
+
+  &.no_indent,
+  &.no_indent + &.no_indent {
+    margin-left: 0;
+    margin-right: 3px;
+    padding-left: 0;
+    padding-right: 8px;
+  }
+
+  &.no_indent:last-child {
+    margin-right: 0;
+  }
+}
+

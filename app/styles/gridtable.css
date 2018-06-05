@@ -1,0 +1,167 @@
+.ui-widget-header {
+    border: none !important;
+    background: none !important;
+    color: #444444;
+    font-weight: bold;
+}
+
+/* loading */
+.ui-jqgrid .loading {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    width: 200px;
+    height: 60px;
+    z-index: 101;
+    padding: 15px;
+    margin: 0px;
+    text-align: center;
+    font-weight: bold;
+    color: #eea236;
+    background-color: #e0eaf1;
+    display: none;
+    border-width: 5px !important;
+    font-size: 12px;
+}
+
+/*span.action .fa{*/
+/*font-variant: small-caps;*/
+/*color:steelblue;*/
+/*font-weight: bold;*/
+/*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+/*}*/
+
+/*this put the grid to center
+      .ui-jqgrid {
+          margin-left: auto;
+          margin-right: auto;
+      }*/
+
+.ui-jqgrid .ui-userdata {
+    height: auto;
+    border: none !important;
+}
+
+.ui-jqgrid .ui-userdata div {
+    margin: .1em .5em .2em;
+}
+
+.ui-jqgrid .ui-userdata div > * {
+    vertical-align: middle;
+}
+
+/*this section speifically change the font size to 11 px*/
+.ui-jqgrid,
+.ui-jqgrid .ui-jqgrid-view,
+.ui-jqgrid .ui-jqgrid-pager,
+.ui-jqgrid .ui-pg-input {
+    font-size: 0.93em;
+}
+
+.ui-jqgrid .ui-pg-input {
+    height: 16px;
+    font-size: .8em;
+}
+
+/*this will disable the horizontal bar http://stackoverflow.com/questions/3091200/jqgrid-horizontal-scrollbar*/
+.ui-jqgrid .ui-jqgrid-bdiv {
+    position: relative;
+    margin: 0em;
+    padding: 0px;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: left;
+
+}
+
+.ui-jqgrid .ui-jqgrid-htable {
+    border-right: 2px solid #dddddd;
+    border-top-right-radius: 2px;
+}
+
+.ui-jqgrid .ui-jqgrid-bdiv,
+.ui-jqgrid .ui-pg-table {
+    border-right: 1px solid #dddddd;
+}
+
+/*this allow the wrapping*/
+.ui-jqgrid tr.jqgrow td {
+    white-space: normal !important;
+}
+
+.ui-state-hover,
+.ui-state-hover a {
+    background: LightSteelBlue !important;
+    border: none !important;
+    cursor: pointer !important;
+    /*color: #4682b4 !important;*/
+}
+
+.ui-jqgrid .ui-state-highlight,
+.ui-jqgrid .ui-state-highlight a {
+    color: blue;
+}
+
+.ui-state-hover .fa, .ui-state-hover a .fa {
+    color: #fff !important;
+    font-weight: bold !important;
+}
+
+span.action, a.action {
+    /*font-variant: small-caps;*/
+    font-size: 11px;
+    color: #3a92dd;
+}
+
+span.action:visited, a.action:visited {
+    color: #0B0080;
+}
+
+tr.jqgrow td a {
+    padding-left: 6px;
+    /*padding-right: 6px !important;*/
+}
+
+/*well, since we append the tooltip to body*/
+.tooltip-inner {
+    max-width: 350px;
+    /* If max-width does not work, try using width instead */
+    /* width: 350px; */
+}
+
+/** the following is required to adjust look and feel for the subgrid **/
+
+.ui-jqgrid tr.jqgrow td .sgbutton-div a {
+    padding-left: 0px;
+}
+
+.ui-jqgrid tr.ui-subgrid .subgrid-cell {
+    /*display: none;*//*this is to turn off the subgrid cell icon*/
+    display: table-cell !important;
+}
+
+.ui-jqgrid tr.ui-subgrid .subtable {
+    border-spacing: 0;
+    border-style: none;
+}
+
+.ui-jqgrid tr.ui-subgrid > td,
+.ui-jqgrid tr.ui-subtblcell > td {
+    white-space: normal;
+}
+
+.ui-jqgrid tr.ui-subgrid .ui-jqgrid {
+    border-left: 5px solid lightsalmon;
+    padding-left: 1px;
+}
+
+.ui-jqgrid tr.ui-subgrid td div.subgridtablediv {
+    padding: 20px;
+}
+
+.accessible-subgrid-title{
+    float: right;
+    padding-top: 20px;
+    padding-right: 20px;
+}

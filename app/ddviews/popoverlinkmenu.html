@@ -1,0 +1,11 @@
+<span ng-show="linkData.length>0"><a href="{{linkData[0].url}}"
+                                     target="_blank"
+                                     ng-show="linkData.length<2"
+                                     ng-class="tooltipTitleClass"
+> {{linkData[0].name}} </a><a href
+                              ng-show="linkData.length>=2"
+                              ng-class="tooltipTitleClass"
+                              uib-tooltip-html="htmlTips"
+                              tooltip-placement="bottom"
+                              tooltip-append-to-body="true"
+                              tooltip-trigger="focus"> {{tooltipTitle}} </a></span>

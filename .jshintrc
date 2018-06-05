@@ -1,0 +1,35 @@
+{
+  "bitwise": true,
+  "browser": true,
+  "curly": true,
+  "eqeqeq": true,
+  "esversion": 6,
+  "forin": true,
+  "freeze": true,
+  "futurehostile": true,
+  "globals": {
+    "$": false,
+    "angular": false,
+    "d3": false,
+    "dc": false,
+    "jQuery": false,
+    "seqr": false,
+    "Singular": false
+  },
+  "immed": true,
+  "latedef": true,
+  //"maxlen": 120,      // this would be nice
+  "newcap": true,
+  "noarg": true,
+  "nocomma": true,
+  "node": true,
+  "nonbsp": true,
+  "nonew": true,
+  "notypeof": true,
+  "quotmark": "single", // deprecated
+  "smarttabs": true,
+  "strict": true,
+  "trailing": true,
+  "undef": true,        // can't turn this off when `strict` is true
+  "unused": false
+}

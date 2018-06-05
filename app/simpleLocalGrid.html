@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Simple Grid</title>
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico'/>
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="bower_components/free-jqgrid/plugins/ui.multiselect.css"/>
+    <link rel="stylesheet" href="bower_components/free-jqgrid/css/ui.jqgrid.css"/>
+    <link rel="stylesheet" href="bower_components/singularjs/dist/singular.css"/>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/jquery-ui.css"/>
+    <link rel="stylesheet" href="styles/checkboxInline.css">
+    <link rel="stylesheet" href="styles/advancedoptions.css">
+    <link rel="stylesheet" href="styles/ddautosuggestinput.css">
+    <link rel="stylesheet" href="styles/gridtable.css">
+    <link rel="stylesheet" href="styles/popoverlinkmenu.css">
+    <link rel="stylesheet" href="styles/view.table.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <!-- endbuild -->
+</head>
+<body>
+
+
+<!-- build:js(.) scripts/oldieshim.js -->
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.js"></script>
+<![endif]-->
+<!-- endbuild -->
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angulartics/dist/angulartics.min.js"></script>
+<script src="bower_components/angulartics/dist/angulartics-ga.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-filter/dist/angular-filter.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/eventEmitter/EventEmitter.js"></script>
+<script src="bower_components/jquery-ui/jquery-ui.js"></script>
+<script src="bower_components/free-jqgrid/js/jquery.jqgrid.src.js"></script>
+<script src="bower_components/free-jqgrid/plugins/ui.multiselect.js"></script>
+<script src="bower_components/d3/d3.js"></script>
+<script src="bower_components/singularjs/dist/singular.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/filters.js"></script>
+<script src="scripts/mainController.js"></script>
+<script src="scripts/plugins/jquery.jqgrid.showhidecolumnmenu.js"></script>
+<script src="scripts/plugins/jquery.replaceTagName.js"></script>
+<script src="scripts/directives/advancedoptions.js"></script>
+<script src="scripts/directives/checkboxinline.js"></script>
+<script src="scripts/directives/barchart.js"></script>
+<script src="scripts/directives/searchbox.js"></script>
+<script src="scripts/directives/gridtable.js"></script>
+<script src="scripts/directives/popoverlinkmenu.js"></script>
+<script src="scripts/services/ngramAppConfig.js"></script>
+<script src="scripts/services/searchstate.js"></script>
+<script src="scripts/services/debounce.js"></script>
+<script src="scripts/services/backenddriver.js"></script>
+<!-- endbuild -->
+
+<script src="scripts/templates.js"></script>
+
+
+<div ng-app=TestApp style="padding: 20px;">
+    <h1>Simple DataDicer Grid Demo</h1>
+    <div ng-controller="gridController">
+        <grid-table query="query" filters="filters" config="gridConfig"></grid-table>
+    </div>
+</div>
+
+
+<script>
+    angular.module('TestApp', ["ngramApp"])
+            .controller('gridController', ['$scope', '$timeout', function ($scope, $timeout) {
+                $scope.gridConfig = {
+                    guiStyle: "bootstrap",
+                    width: 800,
+                    colModel: [
+                        {name: "name", label: "Client", width: 53, tips: "this is a tip"},
+                        {
+                            name: "invdate", label: "Date", width: 75, align: "center", sorttype: "date",
+                            formatter: "date", formatoptions: {newformat: "d-M-Y"}
+                        },
+                        {name: "amount", label: "Amount", width: 65, template: "number"},
+                        {name: "tax", label: "Tax", width: 41, template: "number"},
+                        {name: "total", label: "Total", width: 51, template: "number"},
+                        {
+                            name: "ship_via", label: "Shipped via", width: 87, align: "center", formatter: "select",
+                            formatoptions: {value: "FE:FedEx;TN:TNT;DH:DHL", defaultValue: "DH"}
+                        }
+                    ],
+                    data: [
+                        {id: "10", invdate: "2015-10-01", name: "test", amount: ""},
+                        {
+                            id: "20",
+                            invdate: "2015-09-01",
+                            name: "test2",
+                            amount: "300.00",
+                            tax: "20.00",
+                            closed: false,
+                            ship_via: "FE",
+                            total: "320.00"
+                        },
+                        {
+                            id: "30",
+                            invdate: "2015-09-01",
+                            name: "test3",
+                            amount: "400.00",
+                            tax: "30.00",
+                            closed: false,
+                            ship_via: "FE",
+                            total: "430.00"
+                        },
+                        {
+                            id: "40",
+                            invdate: "2015-10-04",
+                            name: "test4",
+                            amount: "200.00",
+                            tax: "10.00",
+                            closed: true,
+                            ship_via: "TN",
+                            total: "210.00"
+                        },
+                        {
+                            id: "50",
+                            invdate: "2015-10-31",
+                            name: "test5",
+                            amount: "300.00",
+                            tax: "20.00",
+                            closed: false,
+                            ship_via: "FE",
+                            total: "320.00"
+                        },
+                        {
+                            id: "60",
+                            invdate: "2015-09-06",
+                            name: "test6",
+                            amount: "400.00",
+                            tax: "30.00",
+                            closed: false,
+                            ship_via: "FE",
+                            total: "430.00"
+                        },
+                        {
+                            id: "70",
+                            invdate: "2015-10-04",
+                            name: "test7",
+                            amount: "200.00",
+                            tax: "10.00",
+                            closed: true,
+                            ship_via: "TN",
+                            total: "210.00"
+                        },
+                        {
+                            id: "80",
+                            invdate: "2015-10-03",
+                            name: "test8",
+                            amount: "300.00",
+                            tax: "20.00",
+                            closed: false,
+                            ship_via: "FE",
+                            total: "320.00"
+                        },
+                        {
+                            id: "90",
+                            invdate: "2015-09-01",
+                            name: "test9",
+                            amount: "400.00",
+                            tax: "30.00",
+                            closed: false,
+                            ship_via: "TN",
+                            total: "430.00"
+                        },
+                        {
+                            id: "100",
+                            invdate: "2015-09-08",
+                            name: "test10",
+                            amount: "500.00",
+                            tax: "30.00",
+                            closed: true,
+                            ship_via: "TN",
+                            total: "530.00"
+                        },
+                        {
+                            id: "110",
+                            invdate: "2015-09-08",
+                            name: "test11",
+                            amount: "500.00",
+                            tax: "30.00",
+                            closed: false,
+                            ship_via: "FE",
+                            total: "530.00"
+                        },
+                        {
+                            id: "120",
+                            invdate: "2015-09-10",
+                            name: "test12",
+                            amount: "500.00",
+                            tax: "30.00",
+                            closed: false,
+                            ship_via: "FE",
+                            total: "530.00"
+                        }
+                    ],
+                    rownumbers: true,
+                    showHideColumns: false,
+                    adjustGridWidthOnWindowsResize: false,
+                    adjustGridWidthOnColumnChange: true,
+                    adjustGridWidthOnInit: false,
+                    shrinkToFit: true
+
+
+                };
+
+            }]);
+
+</script>
+</body>
+</html>

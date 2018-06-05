@@ -1,0 +1,23 @@
+.ngram .rowchart {
+  font-size: 11px;
+  vertical-align: bottom;
+}
+.ngram .rowchart g.row text {
+  fill: black;
+}
+.ngram .rowchart .item_name {
+  text-decoration: none;
+  font-size: 11px !important;
+  white-space: nowrap;
+  display: inline-block;
+  cursor: pointer;
+  /*border-radius: 4px;*/
+}
+.ngram .rowchart .item_name:hover {
+  color: #3e6d8e;
+  /*background-color: #4a6b82;*/
+}
+.ngram .rowchart .item_name a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}

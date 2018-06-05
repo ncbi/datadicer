@@ -1,0 +1,74 @@
+{
+  "name": "datadicer",
+  "version": "0.2.46",
+  "description": "DataDicer",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "jquery": "1.11.2"
+  },
+  "//": [
+    "FIXME: see grunt-wiredep below.",
+    "As of 4/11/2016, the latest version of grunt-wiredep doesn't ",
+    "correctly declare its dependences. See this pull request:",
+    "https://github.com/stephenplusplus/grunt-wiredep/pull/150",
+    "We should update it here, whenever that gets pulled."
+  ],
+  "devDependencies": {
+    "bower": "^1.8.2",
+    "grunt": "^1.0.1",
+    "grunt-angular-templates": "^1.0.3",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-concurrent": "^2.3.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-compass": "^1.1.1",
+    "grunt-contrib-concat": "^1.0.0",
+    "grunt-contrib-connect": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-htmlmin": "^1.2.0",
+    "grunt-contrib-imagemin": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-less": "^1.2.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-filerev": "^2.3.1",
+    "grunt-karma": "^0.12.2",
+    "grunt-newer": "^1.1.2",
+    "grunt-ng-annotate": "^2.0.1",
+    "grunt-svgmin": "^3.2.0",
+    "grunt-usemin": "^3.1.1",
+    "grunt-wiredep": "klortho/grunt-wiredep#ad46d5ec",
+    "jasmine-core": "^2.4.1",
+    "jshint-stylish": "^2.1.0",
+    "karma": "^0.13.22",
+    "karma-jasmine": "^0.3.8",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "load-grunt-tasks": "^3.5.0",
+    "phantomjs-prebuilt": "^2.1.7",
+    "serve-static": "^1.10.2",
+    "time-grunt": "^1.3.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ncbi/datadicer.git"
+  },
+  "keywords": [
+    "datadicer",
+    "visualization",
+    "ngram",
+    "solr"
+  ],
+  "author": "NCBI",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/ncbi/datadicer/issues"
+  },
+  "homepage": "https://github.com/ncbi/datadicer#readme"
+}
