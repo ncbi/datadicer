@@ -1,0 +1,1 @@
+"use strict";angular.module("ngramApp").config(["$stateProvider","$urlRouterProvider",function(a,b){b.otherwise("/"),a.state("/",{url:"/",templateUrl:"ddviews/view.html",controller:"MainCtrl"}).state("view",{url:"/view/:term","abstract":!0,templateUrl:"ddviews/view.html",controller:"MainCtrl"}).state("view.table",{url:"/:table",templateUrl:"ddviews/view.table.html"})}]);

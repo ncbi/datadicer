@@ -1,0 +1,1 @@
+<uib-tabset active=active style="padding-top: 20px"><uib-tab index=$index ng-repeat="tab in filter | limitTo:mylimit " heading="{{tab.name}} ({{tab.count}}) " analytics-on analytics-category="filters as tab" analytics-event="tab click" analytics-label={{tab}} select=tabChange(tab)></uib-tab></uib-tabset>
