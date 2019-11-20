@@ -4,7 +4,7 @@
   "description": "DataDicer",
   "main": "Gruntfile.js",
   "dependencies": {
-    "angular": "^1.5.8",
+    "angular": "^1.7.9",
     "hoek": "^5.0.3",
     "jquery": "^3.4.1"
   },
