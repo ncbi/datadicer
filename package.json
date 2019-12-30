@@ -16,10 +16,10 @@
     "We should update it here, whenever that gets pulled."
   ],
   "devDependencies": {
+    "autoprefixer": "^9.7.3",
     "bower": "^1.8.8",
     "grunt": "^1.0.4",
     "grunt-angular-templates": "^1.2.0",
-    "grunt-autoprefixer": "^3.0.4",
     "grunt-concurrent": "^2.3.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-compass": "^1.1.1",
@@ -37,6 +37,7 @@
     "grunt-karma": "^3.0.2",
     "grunt-newer": "^1.1.2",
     "grunt-ng-annotate": "^2.0.1",
+    "grunt-postcss": "^0.9.0",
     "grunt-svgmin": "^6.0.0",
     "grunt-wiredep": "klortho/grunt-wiredep#ad46d5ec",
     "jasmine-core": "^2.4.1",
@@ -70,5 +71,11 @@
   "bugs": {
     "url": "https://github.com/ncbi/datadicer/issues"
   },
-  "homepage": "https://github.com/ncbi/datadicer#readme"
+  "homepage": "https://github.com/ncbi/datadicer#readme",
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "not IE_Mob 11",
+    "maintained node versions"
+  ]
 }

@@ -38,7 +38,7 @@ module.exports = function (config) {
       'bower_components/angular-filter/dist/angular-filter.js',
       'bower_components/singularjs/dist/singular.min.js',
       'app/scripts/**/*.js',
-      'test/mock/**/*.js',
+      // 'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
 
