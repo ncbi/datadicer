@@ -50,7 +50,7 @@ module.exports = function (grunt) {
                     '<%= yeoman.app %>/styles/{,*/}*.less',
                     '<%= yeoman.app %>/styles/{,*/}*.css'
                 ],
-                tasks: ['less', 'newer:copy:styles', 'autoprefixer']
+                tasks: ['less', 'newer:copy:styles', 'postcss']
             },
             gruntfile: {
                 files: ['Gruntfile.js']
@@ -170,9 +170,12 @@ module.exports = function (grunt) {
         },
 
         // Add vendor prefixed styles
-        autoprefixer: {
+        postcss: {
             options: {
-                browsers: ['last 1 version']
+                map: true,
+                processors: [
+                    require('autoprefixer')()
+                ]
             },
             dist: {
                 files: [
@@ -444,7 +447,7 @@ module.exports = function (grunt) {
                 'less',
                 'wiredep',
                 'concurrent:server',
-                'autoprefixer',
+                'postcss',
                 'connect:livereload',
                 'watch'
             ]);
@@ -454,7 +457,7 @@ module.exports = function (grunt) {
         'clean:server',
         'less',
         'concurrent:test',
-        'autoprefixer',
+        'postcss',
         'connect:test',
         'karma'
     ]);
@@ -465,7 +468,7 @@ module.exports = function (grunt) {
         'wiredep',
         'useminPrepare',
         'concurrent:dist',
-        'autoprefixer',
+        'postcss',
         'concat',
         'ngAnnotate',
         'copy:dist',
