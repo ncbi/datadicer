@@ -1,5 +1,11 @@
 # Datadicer
 
+################################################################################################
+
+## This Datadicer repository has been retired as of 6/11/2021. Datadicer was a relational data visualization library for internal use; this codebase was released as No Support Open Source Software.
+
+################################################################################################
+
 ## 1. Developer Manual
 
 * Clone the repo
